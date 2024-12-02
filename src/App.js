@@ -1,11 +1,16 @@
-
-import './App.css';
+// App.js
+import { NavLink, Outlet } from "react-router";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Ola-mundo</h1>
-      <p>Esse é somente um simples aplicativo para treinar rotas.</p>
+      <Outlet/>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '20px', justifyContent: 'center'}}>
+        <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink>
+        <NavLink to="/about" className={({ isActive }) => isActive ? 'active' : ''}>Sobre</NavLink>
+        <NavLink to="/contact" className={({ isActive }) => isActive ? 'active' : ''}>Contato</NavLink>
+      </div>
     </div>
   );
 }
